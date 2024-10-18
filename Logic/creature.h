@@ -1,5 +1,4 @@
 
-
 enum foodChoice{
     Herbivore = 0;
     Carnivore = 1;
@@ -7,30 +6,33 @@ enum foodChoice{
 };
 
 
-class Creature{
+struct Creature{
     public:
     
-    int size;
-    int speed;
-    int vision;
-    int health;
-    int damage;
-    float aggresive;
-    float cooperative;
-    float cowardly;
-    foodChoice eats;
+    int size_;
+    int speed_;
+    int vision_;
+    int health_;
+    int damage_;
+    float aggresive_;
+    float cooperative_;
+    float cowardly_;
+    foodChoice eats_;
 
-    Creature(int size_ = 0, int speed_ = 0; int vision_ = 0, int health_ = 0; int damage_ = 0, float aggresive_ = 0.0; float cooperative_ = 0.0, float cowardly_ = 0.0, char eats_ = 'H'){
-        size = size_;
-        speed = speed_;
-        vision = vision_;
-        health = health_;
-        damage = damage_;
-        aggresive = aggresive_;
-        cooperative = cooperative_;
-        cowardly = cowardly_;
-        if (eats_ == 'H'){eats = Herbivore;}
-        else if (eats == 'C'){eats = Carnivore;}
-        else{eats = Omnivore;}
+    Creature(int size = 0, int speed = 0; int vision = 0, int health = 0; int damage = 0, float aggresive = 0.0; float cooperative = 0.0, float cowardly = 0.0, char eats = 'H'){
+        size_ = size;
+        speed_ = speed;
+        vision_ = vision;
+        health_ = health;
+        damage_ = damage;
+        aggresive_ = aggresive;
+        cooperative_ = cooperative;
+        cowardly_ = cowardly;
+        if (eats == 'H'){eats_ = Herbivore;}
+        else if (eats == 'C'){eats_ = Carnivore;}
+        else{eats_ = Omnivore;}
     }
 }
+
+
+
