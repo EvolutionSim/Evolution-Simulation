@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
+#include "pose2d.h"
 #include "creature.h"
-#include "foodMap.h"
 
 class SimEngine{
     protected:
@@ -12,11 +12,10 @@ class SimEngine{
         int creatureCount_{};
         int foodCount_{};
         std::vector<Creature> creatureList;
-        FoodMap foodMap;
     public:
         SimEngine(float timeStep, float dayLength, int days, float size, int creatureCount_, int foodCount): 
         timeStep_{timeStep}, dayLength_{dayLength}, days_{days}, size_(size), 
-        creatureCount_{creatureCount_}, foodCount_{foodCount}, foodMap{size_, foodCount_} {};
+        creatureCount_{creatureCount_}, foodCount_{foodCount} {};
 
         void init();
         void step();
