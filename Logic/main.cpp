@@ -1,14 +1,10 @@
-#include "creature.h"
-#include <iostream>
+#include "simEngine.h"
 
 int main() {
-    Creature crt{};
+    SimEngine engine(0.0, 0.0, 0.0, 0.0, 5, 0.0, 0.5, 0.5);
 
-    Attributes att{0.2, .1, .5};
-    
-    crt.attributes = att;
+    engine.init();
 
-    std::cout << crt.attributes.size_ << " " << crt.attributes.speed_ << " " << crt.attributes.vision_;
+    engine.simulate();
 
-    std::cout << crt.attributes.damage_ << std::endl;
-}
+    engine.endOfDay();
