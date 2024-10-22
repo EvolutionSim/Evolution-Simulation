@@ -8,4 +8,3 @@ int main() {
     engine.simulate();
 
     engine.endOfDay();
-}
