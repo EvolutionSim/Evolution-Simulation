@@ -19,8 +19,8 @@ void SimEngine::init(){
         foodList_.push_back(node);
     }
 
-    std::uniform_real_distribution<float> traitDistribtuion(0, 10);
-    std::uniform_real_distribution<float> behaviorDistribtuion(0, 1);
+    std::uniform_real_distribution<float> traitDistribution(0, 10);
+    std::uniform_real_distribution<float> behaviorDistribution(0, 1);
 
     //creates initCreatureCount_ many creaturs with random trait values between 0-10 and random behavior values between 0-1
     //the logic for assigning beginning traits and behaviors should be more complex, namely the bahvior values should add to one,
@@ -29,14 +29,14 @@ void SimEngine::init(){
         Creature creature;
         Pose2D initPose{poseDistribution(generator), poseDistribution(generator)};
 
-        creature.attributes_.size_ = traitDistribtuion(generator);
-        creature.attributes_.speed_ = traitDistribtuion(generator);
-        creature.attributes_.vision_ = traitDistribtuion(generator);
-        creature.attributes_.health_ = traitDistribtuion(generator);
-        creature.attributes_.damage_ = traitDistribtuion(generator);
-        creature.behavior_.aggresive_ =  behaviorDistribtuion(generator);
-        creature.behavior_.cooperative_ = behaviorDistribtuion(generator);
-        creature.behavior_.cowardly_ = behaviorDistribtuion(generator);
+        creature.attributes_.size_ = traitDistribution(generator);
+        creature.attributes_.speed_ = traitDistribution(generator);
+        creature.attributes_.vision_ = traitDistribution(generator);
+        creature.attributes_.health_ = traitDistribution(generator);
+        creature.attributes_.damage_ = traitDistribution(generator);
+        creature.behavior_.aggresive_ =  behaviorDistribution(generator);
+        creature.behavior_.cooperative_ = (1 - creature.behavior_.aggresive_) * behaviorDistribution(generator);
+        creature.behavior_.cowardly_ = 1 - creature.behavior_.aggresive_ - creature.behavior_.cooperative_;
 
         creature.pose_ = initPose;
         creature.targetPose_ = {0,0};
