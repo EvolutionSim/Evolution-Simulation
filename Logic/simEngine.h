@@ -2,7 +2,7 @@
 #include <vector>
 #include "Math/pose2d.h"
 #include "creature.h"
-#include "environment.h"
+#include "foodnode.h"
 
 class SimEngine{
     protected:
@@ -10,16 +10,17 @@ class SimEngine{
         float dayLength_{};
         int days_{};
         float size_{};
-        int creatureCount_{};
+        int initCreatureCount_{};
+        int creatureCount_{0};
         int foodCount_{};
         float mutationChance_{};
         float mutationIntensity_{};
-        Environment environment;
+        std::vector<FoodNode> foodList_;
         std::vector<Creature> creatureList_;
     public:
-        SimEngine(float timeStep, float dayLength, int days, float size, int creatureCount_, int foodCount, float mutationChance, float mutationIntensity): 
+        SimEngine(float timeStep, float dayLength, int days, float size, int initCreatureCount, int foodCount, float mutationChance, float mutationIntensity): 
         timeStep_{timeStep}, dayLength_{dayLength}, days_{days}, size_(size), 
-        creatureCount_{creatureCount_}, foodCount_{foodCount}, mutationChance_{mutationChance}, mutationIntensity_{mutationIntensity} {};
+        initCreatureCount_{initCreatureCount}, foodCount_{foodCount}, mutationChance_{mutationChance}, mutationIntensity_{mutationIntensity} {};
 
         void init();
         void step();

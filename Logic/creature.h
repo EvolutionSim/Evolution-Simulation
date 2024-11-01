@@ -1,12 +1,6 @@
 #pragma once
 #include "math/pose2d.h"
 
-enum foodChoice{
-    Herbivore = 0,
-    Carnivore = 1,
-    Omnivore = 3
-};
-
 struct Attributes{
     float size_{0};
     float speed_{0};
@@ -24,11 +18,10 @@ struct Behavior{
 
 struct Creature{
     public:    
-        Attributes attributes;
-        Behavior behavior;
-        foodChoice eats_{Carnivore};
-        Pose2D pose{0,0};
-        Pose2D targetPose{0,0};
-        float foodCount;
+        Attributes attributes_;
+        Behavior behavior_;
+        Pose2D pose_{0,0};
+        Pose2D targetPose_{0,0};
+        float foodCount_;
 };
 
